@@ -19,7 +19,7 @@ module.exports = {
     const { id_produto } = req.params;
 
     const produto = await Produto.findByPk(id_produto, {
-      include: { association: "produto" },
+      include: [{ association: "produto" }],
     });
     return res.status(200).json(produto);
   },
